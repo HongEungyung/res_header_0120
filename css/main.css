@@ -1,0 +1,156 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+ul, li{
+    list-style: none;
+}
+.header{
+    height: 90px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: antiquewhite;
+}
+/* 로고 */
+.logo{
+    width: 10%;
+    max-width: 150px;
+    min-width: 100px;
+    background-color: aquamarine;
+}
+.logo img{
+    width: 100%;
+    display: block;
+}
+/* 메뉴 */
+nav{
+    width: 50%;
+    max-width: 750px;
+    background-color: rgb(238, 255, 141);
+}
+nav .gnb{
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+nav .gnb > li{
+    position: relative;
+    width: calc(100% / 4);
+    text-align: center;
+}
+nav .gnb > li > a{
+    width: 100%;
+    background-color: red;
+    display: block;
+    /* 해줘야 가로 너비 100% 먹힘 */
+}
+nav .gnb:hover .depth2{
+    display: block;
+}
+nav .depth2{
+    display: none;
+    width: 100%;
+    position: absolute;
+    /* 부모인 li 에 position: relative 해줘야 absolute 먹힘 */
+    top: 60px;
+    background-color: rgb(182, 182, 255);
+}
+nav .depth2 > li > a{
+    line-height: 50px;
+}
+
+/* 모바일 메뉴 */
+.mobile-nav{
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    right: -300px;
+    /* 오른쪽에서 나타나는 효과를 위해 */
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    padding-top: 60px;
+}
+.mobile-nav .gnb{
+display: flex;
+flex-direction: column;
+}
+.mobile-nav .gnb > li{
+
+}
+.mobile-nav .gnb > li > a{
+    display: block;
+    padding: 15px;
+    background-color: #444;
+    color: #fff;
+    font-size: 18px;
+}
+.mobile-nav .depth2{
+    display: none;
+}
+.mobile-nav .depth2 > li > a {
+    display: block;
+    padding: 10px;
+    background-color: #666;
+    color: white;
+    font-size: 16px;
+  }
+/* X 버튼 */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+/* 유저 아이콘 */
+.user{
+    width: 15%;
+    max-width: 200px;
+    min-width: 150px;
+    background-color: rgb(216, 175, 255);
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.user li {
+    width: calc(100% / 3);
+}
+.mb-xi{
+    /* 영역 자체인 li 를 없애줘야 나머지 애들 정렬이 맞아 질거임 */
+    /* .xi-bars 에 display:none을 주면 영역은 남아있고 안에 그림만 없어져서 안됨 */
+    display: none;
+}
+
+/* 반응형 */
+@media screen and (max-width: 672px) {
+    nav .gnb{
+        display: none;
+    }
+    .mb-xi{
+        display: block;
+    }
+    .user{
+        gap: 10px;
+    }
+    .mobile-nav{
+        display: block;
+    }
+}
+@media screen and (max-width: 390px) {
+    .header{
+        padding: 0 20px;
+    }
+    .user{
+        gap: 0;
+    }
+}
